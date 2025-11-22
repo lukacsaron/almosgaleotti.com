@@ -1,6 +1,6 @@
 // ===== Animated Favicon =====
 // Animate favicon with cooking emoji rotation
-(function() {
+(function () {
     const frames = [
         "data:image/svg+xml,%3csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3e%3ctext y=%22.9em%22 font-size=%2290%22%3e🍝%3c/text%3e%3c/svg%3e",
         "data:image/svg+xml,%3csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3e%3ctext y=%22.9em%22 font-size=%2290%22%3e🍷%3c/text%3e%3c/svg%3e",
@@ -21,7 +21,7 @@
 })();
 
 // ===== Connected Dots Background Animation =====
-(function() {
+(function () {
     const canvas = document.getElementById('particles-canvas');
     if (!canvas) return;
 
@@ -173,7 +173,7 @@
 })();
 
 // ===== Copy Email to Clipboard =====
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const copyIcon = document.getElementById('copy-email');
     const tooltip = document.getElementById('email-tooltip');
 
@@ -196,77 +196,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// ===== Calendly Modal =====
-document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('calendly-modal');
-    const openBtn = document.getElementById('open-calendly');
-    const closeBtn = document.getElementById('close-calendly');
 
-    // Open modal with GSAP animation
-    if (openBtn && modal) {
-        openBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            // Show modal
-            modal.style.visibility = 'visible';
-
-            // Animate overlay and content
-            gsap.to(modal, {
-                opacity: 1,
-                duration: 0.3,
-                ease: 'power2.out',
-            });
-
-            gsap.to('.modal-content', {
-                scale: 1,
-                duration: 0.4,
-                ease: 'back.out(1.4)',
-                delay: 0.1,
-            });
-        });
-    }
-
-    // Close modal
-    const closeModal = () => {
-        gsap.to('.modal-content', {
-            scale: 0.8,
-            duration: 0.3,
-            ease: 'back.in(1.4)',
-        });
-
-        gsap.to(modal, {
-            opacity: 0,
-            duration: 0.3,
-            ease: 'power2.in',
-            onComplete: () => {
-                modal.style.visibility = 'hidden';
-            }
-        });
-    };
-
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closeModal);
-    }
-
-    // Close on overlay click
-    if (modal) {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-    }
-
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.style.visibility === 'visible') {
-            closeModal();
-        }
-    });
-});
 
 // ===== Intro Page Load Animations =====
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Intro animation timeline
     const introTimeline = gsap.timeline({ defaults: { ease: 'expo.out' } });
 
@@ -293,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===== Main Application Code =====
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const sections = document.querySelectorAll('.section-header[id], #intro');
     const navDots = document.querySelectorAll('.scroll-nav-dot');
 
@@ -389,7 +322,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle click events for smooth scrolling with offset
     navDots.forEach(dot => {
-        dot.addEventListener('click', function(e) {
+        dot.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
@@ -506,7 +439,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const items = tickerElement.querySelectorAll('.ticker-item');
 
         if (items.length <= 1) {
-            if(items.length === 1) {
+            if (items.length === 1) {
                 gsap.set(items[0], { opacity: 1, x: 0, force3D: true });
             }
             return;
@@ -540,12 +473,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 ease: 'power2.inOut',
                 force3D: true
             }, 0)
-            .to(next, {
-                x: '0%',
-                duration: 0.6,
-                ease: 'power2.inOut',
-                force3D: true
-            }, 0);
+                .to(next, {
+                    x: '0%',
+                    duration: 0.6,
+                    ease: 'power2.inOut',
+                    force3D: true
+                }, 0);
         }
 
         gsap.delayedCall(3, showNext);
