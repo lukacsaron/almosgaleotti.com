@@ -1648,8 +1648,12 @@ h1 {
 }
 
 .bg-tallinn-mission {
-    background-image: url('photos/scim-tallin-2024.jpeg');
+    background-image: url('photos/scim-tallin-2024.jpg');
     /* Italian Cuisine Week in the World - Tallinn 2024 institutional mission */
+}
+
+.bg-almos-intro {
+    background-image: url('photos/almos-intro.jpg');
 }
 
 .bg-zsiraf {
