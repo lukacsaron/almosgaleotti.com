@@ -4,7 +4,7 @@ FROM nginx:alpine
 COPY index.html /usr/share/nginx/html/
 COPY styles.css /usr/share/nginx/html/
 COPY almos.jpg /usr/share/nginx/html/
-COPY opengraph.png /usr/share/nginx/html/
+COPY opengraph.jpg /usr/share/nginx/html/
 COPY photos /usr/share/nginx/html/photos
 COPY logos /usr/share/nginx/html/logos
 
