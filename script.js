@@ -555,4 +555,54 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initialize first card
     cards[0].classList.add('active');
+
+    // Swipe functionality
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let touchStartY = 0;
+    let touchEndY = 0;
+
+    stack.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    stack.addEventListener('touchmove', (e) => {
+        // Optional: Prevent scrolling if swipe is horizontal
+        let currentX = e.changedTouches[0].screenX;
+        let currentY = e.changedTouches[0].screenY;
+
+        if (Math.abs(currentX - touchStartX) > Math.abs(currentY - touchStartY)) {
+            // e.preventDefault(); // Uncomment if you want to block vertical scroll during horizontal swipe
+        }
+    }, { passive: false });
+
+    stack.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+        const swipeThreshold = 50; // Minimum distance for swipe
+        const verticalThreshold = 100; // Maximum vertical distance allowed
+
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
+
+        // Check if swipe is predominantly horizontal
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffY) < verticalThreshold) {
+            if (Math.abs(diffX) > swipeThreshold) {
+                if (diffX > 0) {
+                    // Swipe Right -> Previous Card
+                    const newIndex = currentIndex > 0 ? currentIndex - 1 : cards.length - 1;
+                    updateCards(newIndex);
+                } else {
+                    // Swipe Left -> Next Card
+                    const newIndex = currentIndex < cards.length - 1 ? currentIndex + 1 : 0;
+                    updateCards(newIndex);
+                }
+            }
+        }
+    }
 });

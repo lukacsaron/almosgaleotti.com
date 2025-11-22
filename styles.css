@@ -2049,3 +2049,58 @@ h1 {
         transform: translateY(-2px);
     }
 }
+
+/* Mobile Typography Adjustments */
+@media (max-width: 768px) {
+    .intro-heading-hero {
+        font-size: 36px;
+        margin-bottom: 8px;
+    }
+
+    .intro-heading-secondary {
+        font-size: 26px;
+        margin-left: 20px;
+    }
+
+    .intro-heading {
+        font-size: 28px;
+    }
+
+    .intro-heading-medium {
+        font-size: 24px;
+    }
+
+    .intro-subheading-large {
+        font-size: 18px;
+    }
+
+    .intro-body,
+    .intro-body-small {
+        font-size: 16px;
+    }
+
+    /* Mobile Image Height Adjustments */
+    .image-card.bg-almos-intro {
+        height: 360px;
+        background-position: bottom;
+    }
+
+    .image-card.bg-sigep,
+    .image-card.bg-tallinn-mission,
+    .image-card.bg-borago,
+    .image-card.bg-contrada,
+    .image-card.bg-giulia,
+    .image-card.bg-marathon {
+        height: 360px;
+    }
+
+    .image-card.bg-uliassi-kitchen,
+    .image-card.bg-uliassi-popup {
+        height: 400px;
+    }
+
+    /* Endorsement Stack Mobile Adjustment */
+    .endorsement-stack {
+        min-height: 480px;
+    }
+}
