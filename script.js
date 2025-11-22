@@ -486,3 +486,73 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.querySelectorAll('.achievement-ticker').forEach(initializeTicker);
 });
+
+// ===== Endorsement Card Navigation =====
+document.addEventListener('DOMContentLoaded', function () {
+    const stack = document.querySelector('.endorsement-stack');
+    const cards = document.querySelectorAll('.endorsement-card');
+    const prevBtn = document.querySelector('.endorsement-nav-prev');
+    const nextBtn = document.querySelector('.endorsement-nav-next');
+    const dots = document.querySelectorAll('.endorsement-nav-dot');
+
+    if (!stack || cards.length === 0) return;
+
+    let currentIndex = 0;
+
+    function updateCards(newIndex) {
+        if (newIndex === currentIndex) return;
+
+        const direction = newIndex > currentIndex ? 1 : -1;
+
+        // Update active states
+        cards[currentIndex].classList.remove('active');
+        cards[newIndex].classList.add('active');
+        dots[currentIndex].classList.remove('active');
+        dots[newIndex].classList.add('active');
+
+        // Animate with GSAP
+        const timeline = gsap.timeline();
+
+        timeline.to(cards[currentIndex], {
+            x: direction * -100 + '%',
+            opacity: 0,
+            duration: 0.4,
+            ease: 'power2.inOut'
+        }).fromTo(cards[newIndex], {
+            x: direction * 100 + '%',
+            opacity: 0
+        }, {
+            x: 0,
+            opacity: 1,
+            duration: 0.4,
+            ease: 'power2.inOut'
+        }, 0);
+
+        currentIndex = newIndex;
+    }
+
+    // Navigation click handlers
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            const newIndex = currentIndex > 0 ? currentIndex - 1 : cards.length - 1;
+            updateCards(newIndex);
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            const newIndex = currentIndex < cards.length - 1 ? currentIndex + 1 : 0;
+            updateCards(newIndex);
+        });
+    }
+
+    // Dot navigation
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            updateCards(index);
+        });
+    });
+
+    // Initialize first card
+    cards[0].classList.add('active');
+});

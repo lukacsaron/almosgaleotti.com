@@ -722,7 +722,7 @@ h1 {
 /* --- Endorsement Card Stack Styling --- */
 
 .bento-item:has(.endorsement-stack-container) {
-    overflow: visible;
+    overflow: hidden;
     background: transparent;
     border: none;
     box-shadow: none;
@@ -752,6 +752,11 @@ h1 {
     will-change: transform;
     cursor: grab;
     opacity: 0;
+}
+
+.endorsement-card.active {
+    opacity: 1;
+    z-index: 10;
 }
 
 .endorsement-card:active {
@@ -1048,6 +1053,15 @@ h1 {
 
 .bento-item:hover .caption {
     transform: translateY(-3px);
+}
+
+.caption-top {
+    bottom: auto;
+    top: 20px;
+}
+
+.bento-item:hover .caption-top {
+    transform: translateY(3px);
 }
 
 /* Mobile: move Xaver stage photo caption below image like YouTube embeds */
@@ -1945,4 +1959,28 @@ h1 {
 
 .cursor-star {
     cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text y="24" font-size="24">⭐</text></svg>') 16 16, auto;
+}
+
+.cursor-heart {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text y="24" font-size="24">❤️</text></svg>') 16 16, auto;
+}
+
+.cursor-precision {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text y="24" font-size="24">🎯</text></svg>') 16 16, auto;
+}
+
+.cursor-pizza {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text y="24" font-size="24">🍕</text></svg>') 16 16, auto;
+}
+
+.cursor-pasta {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text y="24" font-size="24">🍝</text></svg>') 16 16, auto;
+}
+
+.cursor-chili {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text y="24" font-size="24">🌶️</text></svg>') 16 16, auto;
+}
+
+.cursor-runner {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text y="24" font-size="24">🏃</text></svg>') 16 16, auto;
 }
