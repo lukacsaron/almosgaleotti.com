@@ -625,6 +625,11 @@ h1 {
     grid-row: span 24;
 }
 
+.row-span-32 {
+    grid-row: span 32;
+}
+
+
 .row-span-12 {
     grid-row: span 12;
 }
@@ -1048,6 +1053,27 @@ h1 {
 .bento-item:hover .image-card::before {
     transform: scale(1.08);
 }
+
+/* Video Card Styles */
+.video-card {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.video-background {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bento-item:hover .video-background {
+    transform: scale(1.08);
+}
+
 
 .caption {
     position: absolute;
@@ -1541,88 +1567,22 @@ h1 {
     font-weight: 700;
 }
 
-/* Gradient 1a: Culture - Vibrant Purple-Blue */
-.intro-accent.gradient-1a {
-    background-image: linear-gradient(135deg, #667EEA, #764BA2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-    position: relative;
-}
-
-/* Gradient 1b: Technology - Teal-Cyan */
-.intro-accent.gradient-1b {
-    background-image: linear-gradient(135deg, #38A89D, #4FC3F7);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-    position: relative;
-}
-
-/* Gradient 1c: Business - Pink-Coral */
-.intro-accent.gradient-1c {
-    background-image: linear-gradient(135deg, #F093FB, #F5576C);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-    position: relative;
-}
-
-/* Gradient 2: Unexpected Pop with Teal (hard part) */
-.intro-accent.gradient-2 {
-    background-image: linear-gradient(to right, #F093FB, #F5576C);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-}
-
-/* Gradient 3: Angled Vibrant (something real) */
-.intro-accent.gradient-3 {
-    background-image: linear-gradient(45deg, #38A89D, #667EEA);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-}
-
-/* Gradient 4: Bold Purple-Pink (matters) */
-.intro-accent.gradient-4 {
-    background-image: linear-gradient(135deg, #667EEA, #F093FB);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-}
-
-/* Gradient 5: Deep Blue-Indigo (infrastructure) */
-.intro-accent.gradient-5 {
-    background-image: linear-gradient(to right, #4A90E2, #667EEA, #764BA2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-}
-
-/* Gradient 6: Warm Amber-Red (pandemic) */
-.intro-accent.gradient-6 {
-    background-image: linear-gradient(135deg, #F5576C, #FD7E14);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-}
-
-/* Gradient 7: Deep Purple-Blue (focus) */
+/* Beautiful Brown Gradient - Unified for all text highlights */
+.intro-accent.gradient-1a,
+.intro-accent.gradient-1b,
+.intro-accent.gradient-1c,
+.intro-accent.gradient-2,
+.intro-accent.gradient-3,
+.intro-accent.gradient-4,
+.intro-accent.gradient-5,
+.intro-accent.gradient-6,
 .intro-accent.gradient-7 {
-    background-image: linear-gradient(135deg, #667EEA, #4A90E2);
+    background-image: linear-gradient(135deg, #8B6F47, #5D4E37, #3E2723);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
+    position: relative;
 }
 
 .intro-heading-medium.line-2 {
@@ -1631,6 +1591,14 @@ h1 {
 
 .accent-strong {
     color: var(--color-accent);
+}
+
+.accent-strong-gradient {
+    background: linear-gradient(135deg, #B8653E 0%, #8B4420 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
 /* Map Specific Styles */
@@ -1683,6 +1651,11 @@ h1 {
     /* Italian Cuisine Week in the World - Tallinn 2024 institutional mission */
 }
 
+.bg-tbilisi {
+    background-image: url('photos/tbilisi.jpg');
+    /* Italian Cuisine Week in the World - Tbilisi 2024 institutional mission */
+}
+
 .bg-almos-intro {
     background-image: url('photos/almos-intro.jpg');
 }
@@ -1698,8 +1671,8 @@ h1 {
 }
 
 .bg-best-chef {
-    background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&q=80');
-    /* Awards ceremony/elegant gathering - Best Chef Awards placeholder */
+    background-image: url('photos/best-chef.jpg');
+    /* The Best Chef Awards - Milan 2025 */
 }
 
 .bg-marathon {
