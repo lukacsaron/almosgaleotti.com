@@ -7,7 +7,7 @@ COPY styles.css /usr/share/nginx/html/
 COPY styles-studio.css /usr/share/nginx/html/
 COPY script.js /usr/share/nginx/html/
 COPY almos.jpg /usr/share/nginx/html/
-COPY opengraph.jpg /usr/share/nginx/html/
+COPY og-image.jpg /usr/share/nginx/html/
 COPY photos /usr/share/nginx/html/photos
 COPY logos /usr/share/nginx/html/logos
 
