@@ -1860,6 +1860,17 @@ h1 {
         grid-column: span 1;
     }
 
+    /* Reset row spans on mobile since grid is single-column */
+    .row-span-2,
+    .row-span-4,
+    .row-span-6,
+    .row-span-8,
+    .row-span-12,
+    .row-span-24,
+    .row-span-32 {
+        grid-row: auto;
+    }
+
     .avatar {
         width: 120px;
         height: 120px;
@@ -2070,6 +2081,11 @@ h1 {
     .image-card.bg-uliassi-kitchen,
     .image-card.bg-uliassi-popup {
         height: 400px;
+    }
+
+    .image-card.bg-best-chef {
+        height: 360px;
+        background-position: center top;
     }
 
     /* Endorsement Stack Mobile Adjustment */
