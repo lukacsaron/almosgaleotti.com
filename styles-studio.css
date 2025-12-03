@@ -1880,6 +1880,11 @@ h1 {
         height: 180px;
     }
 
+    /* Increase pasta video card height by 20% on mobile */
+    .cursor-pasta .video-card {
+        min-height: 216px;
+        /* 180px * 1.2 = 216px */
+    }
 
     .endorsement-card {
         padding: 28px 24px;
